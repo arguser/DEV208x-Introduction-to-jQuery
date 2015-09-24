@@ -9,12 +9,47 @@
 </head>
 
 <body>
+  <h1>Hello, H1</h1>
+  <h1 class="cssSelector">Hello, another H1</h1>
+  <h1 id="h1-id">Hello, yet another H1</h1>
+  <h1 custom="banner">Hello, yet another H1</h1>
+  <h1 custom="col-4-m">Hello, yet another H1</h1>
+  <h1 custom="this-one-have-what">Hello, yet another H1</h1>
+
+  <nav>
+    <ul>
+      <li><a href="#">This is a Nav Link</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1> This is a Header</h1>
+  </header>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript">
+    // Esto corre cuando la pagina es cargada completamente
     $(function() {
+      // alert muestra un modal, una vez que se haga click en OK prosigue con
+      // la ejecución de las siguientes instrucciones
       alert('Bonjour, monde!');
+      // Encontramos elementos del tipo H1
+      $('h1').text("Hello, jQuery");
+      // Encontramos elementos con clase cssSelector
+      $('.cssSelector').text("this H1 element have a CSS Class called cssSelector");
+      // Encontramos elementos con id h1-id
+      $('#h1-id').text("and this one an ID");
+      // Encontramos elementos por igualdad
+      $('[custom="banner"]').text("but this was found by attribute equality");
+      // Encontramos elementos que empiezan con
+      $('[custom^="col"]').text("this elements starts with col");
+      // Encontramos elementos que contengan
+      $('[custom*="have"]').text("this elements has the word HAVE")
+      // Encontramos elementos por parentezco
+      $('header > h1').text("This element is a child of Header");
+      // Encontramos elementos por desendencia
+      $('nav a').text("This element is a descendent of Nav");
     })
   </script>
 </body>
